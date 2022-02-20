@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorHello {
 
 	@RequestMapping( value="/" , method=RequestMethod.GET)
-	public String index(@RequestParam( value = "saludo" , required = false) String searchQuery) {
+	public String index(@RequestParam( value = "saludo" , required = false) String searchQuery,
+						@RequestParam( value = "lastname", required = false) String lastname) {
 		if (searchQuery == null) {
 			return "Hello Humano";
 		}
 		else {
-		return "Hello " + searchQuery;
+		return "Hello " + searchQuery + " " + lastname;
 		}
 	}
 }
